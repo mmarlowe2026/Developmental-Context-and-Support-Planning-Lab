@@ -1,0 +1,1124 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta
+    name="description"
+    content="PSY 210 Week 14 Developmental Context and Support Planning Lab"
+  >
+
+  <title>PSY 210 Developmental Context and Support Planning Lab</title>
+
+  <style>
+    :root {
+      --navy: #17365d;
+      --blue: #2e74b5;
+      --indigo: #54508f;
+      --plum: #72506f;
+      --pale-blue: #edf4fa;
+      --pale-indigo: #f1f0f8;
+      --gold: #b88718;
+      --ink: #1f2937;
+      --muted: #5b6573;
+      --line: #cbd5e1;
+      --white: #ffffff;
+      --danger: #8b1e2d;
+      --success: #166534;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: linear-gradient(#ebeef5, #f7f9fb 36rem);
+      color: var(--ink);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.58;
+    }
+
+    .wrap {
+      width: min(1050px, calc(100% - 2rem));
+      margin: 0 auto;
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 3.2rem 1rem 4.8rem;
+      color: var(--white);
+      background: linear-gradient(
+        130deg,
+        var(--navy),
+        #334f78 50%,
+        var(--plum)
+      );
+    }
+
+    .hero::after {
+      position: absolute;
+      top: -130px;
+      right: -80px;
+      width: 330px;
+      height: 330px;
+      border: 52px solid rgba(255, 255, 255, 0.07);
+      border-radius: 50%;
+      content: "";
+    }
+
+    .eyebrow {
+      margin: 0;
+      color: #e9dcff;
+      font-size: 0.84rem;
+      font-weight: 900;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .hero h1 {
+      max-width: 900px;
+      margin: 0.3rem 0;
+      font-size: clamp(2.2rem, 5.5vw, 4.2rem);
+      line-height: 1.04;
+      letter-spacing: -0.035em;
+    }
+
+    .hero p:last-child {
+      max-width: 780px;
+      color: #f2eef7;
+      font-size: 1.1rem;
+    }
+
+    main {
+      position: relative;
+      margin-top: -2.3rem;
+    }
+
+    .notice,
+    .progress,
+    .panel {
+      background: var(--white);
+      border: 1px solid var(--line);
+      box-shadow: 0 12px 30px rgba(23, 54, 93, 0.12);
+    }
+
+    .notice {
+      padding: 1rem 1.15rem;
+      background: #fff8df;
+      border-left: 6px solid var(--gold);
+      border-radius: 12px;
+    }
+
+    .notice p {
+      margin: 0;
+    }
+
+    .progress {
+      margin: 1rem 0;
+      padding: 1rem 1.15rem;
+      border-radius: 14px;
+    }
+
+    .progress-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      color: var(--navy);
+      font-weight: 800;
+    }
+
+    .progress-track {
+      height: 10px;
+      margin-top: 0.65rem;
+      overflow: hidden;
+      background: #e8eaf0;
+      border-radius: 99px;
+    }
+
+    .progress-bar {
+      width: 20%;
+      height: 100%;
+      background: linear-gradient(90deg, var(--blue), var(--plum));
+      transition: width 0.2s ease;
+    }
+
+    .tabs {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 0.55rem;
+      margin: 1rem 0;
+    }
+
+    .tab,
+    .button {
+      border-radius: 9px;
+      font: inherit;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .tab {
+      padding: 0.75rem 0.4rem;
+      color: var(--navy);
+      background: var(--white);
+      border: 1px solid #aeb9c7;
+    }
+
+    .tab:hover {
+      background: var(--pale-indigo);
+      border-color: var(--indigo);
+    }
+
+    .tab.active {
+      color: var(--white);
+      background: var(--indigo);
+      border-color: var(--indigo);
+    }
+
+    .panel {
+      display: none;
+      margin-bottom: 1.5rem;
+      padding: clamp(1.2rem, 3vw, 2rem);
+      border-radius: 18px;
+    }
+
+    .panel.active {
+      display: block;
+    }
+
+    .kicker {
+      margin: 0;
+      color: var(--indigo);
+      font-size: 0.82rem;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .panel h2 {
+      margin: 0.2rem 0 0.6rem;
+      color: var(--navy);
+      font-size: clamp(1.65rem, 3vw, 2.2rem);
+    }
+
+    .lead {
+      margin-top: 0;
+      color: var(--muted);
+    }
+
+    .case {
+      margin: 1rem 0;
+      padding: 1.2rem;
+      background: linear-gradient(
+        135deg,
+        var(--pale-indigo),
+        var(--pale-blue)
+      );
+      border-left: 6px solid var(--plum);
+      border-radius: 10px;
+    }
+
+    .case h3 {
+      margin: 0;
+      color: var(--navy);
+    }
+
+    .case p {
+      margin: 0.5rem 0;
+    }
+
+    .boundary {
+      padding: 0.9rem 1rem;
+      color: #63332c;
+      background: #fff2ef;
+      border: 1px solid #ecc7c0;
+      border-radius: 8px;
+    }
+
+    .lens-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.65rem;
+      margin: 1rem 0;
+    }
+
+    .lens {
+      padding: 0.85rem;
+      background: #fafafd;
+      border: 1px solid var(--line);
+      border-top: 4px solid var(--indigo);
+      border-radius: 9px;
+    }
+
+    .lens strong {
+      display: block;
+      color: var(--navy);
+    }
+
+    .field {
+      display: block;
+      margin: 1.15rem 0;
+    }
+
+    .field-heading {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .field-title {
+      color: var(--navy);
+      font-weight: 800;
+    }
+
+    .word-count,
+    .hint {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .hint {
+      display: block;
+      margin: 0.25rem 0 0.45rem;
+    }
+
+    textarea {
+      width: 100%;
+      min-height: 125px;
+      padding: 0.85rem;
+      background: #fcfcfd;
+      border: 1px solid #95a4b5;
+      border-radius: 8px;
+      font: inherit;
+      resize: vertical;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+      margin-top: 1.25rem;
+    }
+
+    .button {
+      padding: 0.72rem 1rem;
+      color: var(--white);
+      background: var(--navy);
+      border: 0;
+    }
+
+    .button:hover {
+      background: var(--indigo);
+    }
+
+    .button.secondary {
+      color: var(--navy);
+      background: #e9edf2;
+    }
+
+    .button.danger {
+      background: var(--danger);
+    }
+
+    button:focus-visible,
+    textarea:focus {
+      outline: 3px solid var(--gold);
+      outline-offset: 2px;
+    }
+
+    .summary {
+      min-height: 430px;
+      padding: 1rem;
+      white-space: pre-wrap;
+      background: #f8f9fb;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      font-family: Arial, Helvetica, sans-serif;
+      overflow-wrap: anywhere;
+    }
+
+    .status {
+      min-height: 1.5rem;
+      color: var(--success);
+      font-weight: 800;
+    }
+
+    footer {
+      padding: 1rem 1rem 2.5rem;
+      color: var(--muted);
+      font-size: 0.9rem;
+      text-align: center;
+    }
+
+    @media (max-width: 760px) {
+      .tabs {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .tabs .tab:last-child {
+        grid-column: 1 / -1;
+      }
+
+      .lens-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 440px) {
+      .tabs {
+        grid-template-columns: 1fr;
+      }
+
+      .tabs .tab:last-child {
+        grid-column: auto;
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      .progress-row {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        scroll-behavior: auto !important;
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="hero">
+    <div class="wrap">
+      <p class="eyebrow">PSY 210 · Week 14 Clinical Reasoning Lab</p>
+
+      <h1>Developmental Context &amp; Support Planning Lab</h1>
+
+      <p>
+        Compare evidence across development and settings, preserve youth
+        voice, and plan meaningful supports before interpreting a child or
+        adolescent's behavior.
+      </p>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div class="notice">
+      <p>
+        <strong>Privacy boundary:</strong>
+        Use only the fictional Jordan Lee case. Personal developmental,
+        disability, trauma, family, school, or treatment histories are never
+        required. Responses remain in this browser and are not sent to a
+        server.
+      </p>
+    </div>
+
+    <div class="progress">
+      <div class="progress-row">
+        <span id="stepText">Step 1 of 5</span>
+        <span id="doneText">0 of 11 prompts started</span>
+      </div>
+
+      <div class="progress-track">
+        <div class="progress-bar" id="progressBar"></div>
+      </div>
+    </div>
+
+    <nav class="tabs" aria-label="Lab steps">
+      <button type="button" class="tab active" data-step="0">
+        1 · Case
+      </button>
+
+      <button type="button" class="tab" data-step="1">
+        2 · Evidence
+      </button>
+
+      <button type="button" class="tab" data-step="2">
+        3 · Settings
+      </button>
+
+      <button type="button" class="tab" data-step="3">
+        4 · Context
+      </button>
+
+      <button type="button" class="tab" data-step="4">
+        5 · Respond
+      </button>
+    </nav>
+
+    <!-- STEP 1 -->
+    <section class="panel active">
+      <p class="kicker">Step 1 · Encounter the Case</p>
+
+      <h2>Look Through Development, Setting, and Voice</h2>
+
+      <p class="lead">
+        Read for directly supported evidence, developmental expectations,
+        differences across settings, functional impact, strengths, youth
+        voice, and uncertainty.
+      </p>
+
+      <div class="case">
+        <h3>Jordan Lee Week 14 Case</h3>
+
+        <p>
+          Jordan is a 13-year-old seventh-grade student. One teacher reports
+          frequent movement, unfinished independent work, interruptions, and
+          conflict during unstructured transitions.
+        </p>
+
+        <p>
+          Jordan's science teacher reports sustained focus during hands-on
+          activities. A caregiver describes late bedtimes, difficulty
+          starting homework, intense interest in transit maps, sensitivity to
+          cafeteria noise, and strong memory for preferred topics.
+        </p>
+
+        <p>
+          Jordan's grades declined after a school change and increased family
+          stress. Jordan says, “People decide I am a problem before they ask
+          what is happening.”
+        </p>
+
+        <p>
+          Developmental history, learning and language assessment, peer
+          experiences, mood and anxiety symptoms, trauma exposure, sleep
+          pattern, medical factors, substance exposure, accommodations, and
+          the consistency and duration of concerns remain unclear.
+        </p>
+      </div>
+
+      <div class="boundary">
+        <strong>Professional boundary:</strong>
+        This fictional information identifies assessment priorities. It does
+        not establish ADHD, autism spectrum disorder, a conduct-related
+        disorder, intellectual disability, or any other diagnosis. Do not
+        diagnose Jordan from limited case details.
+      </div>
+
+      <div class="lens-grid">
+        <div class="lens">
+          <strong>Development</strong>
+          What is expected for Jordan's age, developmental level, and
+          learning history?
+        </div>
+
+        <div class="lens">
+          <strong>Settings</strong>
+          Where does the concern appear, where does it not, and how do
+          demands differ?
+        </div>
+
+        <div class="lens">
+          <strong>Youth Voice</strong>
+          What does Jordan notice, value, need, and want adults to understand?
+        </div>
+      </div>
+
+      <div class="actions">
+        <button type="button" class="button" data-next="1">
+          Separate Evidence From Labels
+        </button>
+      </div>
+    </section>
+
+    <!-- STEP 2 -->
+    <section class="panel">
+      <p class="kicker">Step 2 · Evidence</p>
+
+      <h2>Describe Before You Interpret</h2>
+
+      <label class="field">
+        <span class="field-heading">
+          <span class="field-title">Directly Supported Evidence</span>
+          <span class="word-count" id="factsCount">0 words</span>
+        </span>
+
+        <span class="hint">
+          Record exact reports, observable behavior, duration, settings,
+          functional impact, and situations in which Jordan functions more
+          successfully.
+        </span>
+
+        <textarea
+          id="facts"
+          placeholder="The case directly supports..."
+        ></textarea>
+      </label>
+
+      <label class="field">
+        <span class="field-heading">
+          <span class="field-title">Labels and Assumptions to Avoid</span>
+          <span class="word-count" id="assumptionsCount">0 words</span>
+        </span>
+
+        <span class="hint">
+          Identify conclusions the case cannot support about intent,
+          motivation, parenting, character, diagnosis, dangerousness, or
+          ability to learn.
+        </span>
+
+        <textarea
+          id="assumptions"
+          placeholder="The case does not establish..."
+        ></textarea>
+      </label>
+
+      <div class="actions">
+        <button type="button" class="button secondary" data-back="0">
+          Back
+        </button>
+
+        <button type="button" class="button" data-next="2">
+          Compare the Settings
+        </button>
+      </div>
+    </section>
+
+    <!-- STEP 3 -->
+    <section class="panel">
+      <p class="kicker">Step 3 · Development and Settings</p>
+
+      <h2>Compare Demands, Supports, and Functional Impact</h2>
+
+      <label class="field">
+        <span class="field-heading">
+          <span class="field-title">
+            Developmental Course and Timeline
+          </span>
+
+          <span class="word-count" id="timelineCount">0 words</span>
+        </span>
+
+        <span class="hint">
+          Organize development, onset, duration, change, school transition,
+          family stress, sleep, health, services, and periods of stronger
+          functioning.
+        </span>
+
+        <textarea id="timeline"></textarea>
+      </label>
+
+      <label class="field">
+        <span class="field-heading">
+          <span class="field-title">
+            Multi-Setting Evidence and Informant Perspectives
+          </span>
+
+          <span class="word-count" id="contextsCount">0 words</span>
+        </span>
+
+        <span class="hint">
+          Compare Jordan's perspective with reports from home, classes,
+          transitions, peers, and activities. Identify agreements,
+          differences, and missing evidence.
+        </span>
+
+        <textarea id="contexts"></textarea>
+      </label>
+
+      <label class="field">
+        <span class="field-heading">
+          <span class="field-title">
+            Possible Function, Demands, and Skill Needs
+          </span>
+
+          <span class="word-count" id="functionCount">0 words</span>
+        </span>
+
+        <span class="hint">
+          What may precede and follow the behavior? Consider communication,
+          escape, attention, regulation, sensory needs, skills,
+          reinforcement, and environmental fit.
+        </span>
+
+        <textarea id="function"></textarea>
+      </label>
+
+      <div class="actions">
+        <button type="button" class="button secondary" data-back="1">
+          Back
+        </button>
+
+        <button type="button" class="button" data-next="3">
+          Examine Context
+        </button>
+      </div>
+    </section>
+
+    <!-- STEP 4 -->
+    <section class="panel">
+      <p class="kicker">Step 4 · Differentiate and Contextualize</p>
+
+      <h2>Keep Development, Neurodiversity, and Alternatives Visible</h2>
+
+      <label class="field">
+        <span class="field-heading">
+          <span class="field-title">
+            Alternative Explanations and Missing Evidence
+          </span>
+
+          <span class="word-count" id="alternativesCount">0 words</span>
+        </span>
+
+        <span class="hint">
+          Compare developmental variation, attention, learning, language,
+          autism, intellectual or adaptive functioning, sleep, trauma, mood,
+          anxiety, sensory, substance, medical, and situational explanations.
+        </span>
+
+        <textarea id="alternatives"></textarea>
+      </label>
+
+      <label class="field">
+        <span class="field-heading">
+          <span class="field-title">
+            Culture, Identity, Disability, and Environment
+          </span>
+
+          <span class="word-count" id="cultureCount">0 words</span>
+        </span>
+
+        <span class="hint">
+          Explore culture, language, identity, family structure, disability,
+          discrimination, school expectations, resources, power, and access
+          without stereotyping.
+        </span>
+
+        <textarea id="culture"></textarea>
+      </label>
+
+      <label class="field">
+        <span class="field-heading">
+          <span class="field-title">
+            Youth Voice, Strengths, Safety, and Protective Factors
+          </span>
+
+          <span class="word-count" id="safetyCount">0 words</span>
+        </span>
+
+        <span class="hint">
+          Include Jordan's priorities, interests, abilities, supportive
+          relationships, successful settings, agency, and needed evidence
+          about bullying, victimization, self-harm, aggression, substance
+          exposure, or other current safety concerns.
+        </span>
+
+        <textarea id="safety"></textarea>
+      </label>
+
+      <div class="actions">
+        <button type="button" class="button secondary" data-back="2">
+          Back
+        </button>
+
+        <button type="button" class="button" data-next="4">
+          Plan the Response
+        </button>
+      </div>
+    </section>
+
+    <!-- STEP 5 -->
+    <section class="panel">
+      <p class="kicker">Step 5 · Respond and Export</p>
+
+      <h2>Create a Strengths-Based Developmental Formulation</h2>
+
+      <label class="field">
+        <span class="field-heading">
+          <span class="field-title">
+            Youth- and Family-Centered Assessment Questions
+          </span>
+
+          <span class="word-count" id="questionsCount">0 words</span>
+        </span>
+
+        <span class="hint">
+          Write respectful questions for Jordan and caregivers about
+          development, settings, function, learning, communication, sleep,
+          culture, safety, strengths, preferences, and goals.
+        </span>
+
+        <textarea id="questions"></textarea>
+      </label>
+
+      <label class="field">
+        <span class="field-heading">
+          <span class="field-title">
+            Provisional Developmental Formulation
+          </span>
+
+          <span class="word-count" id="formulationCount">0 words</span>
+        </span>
+
+        <span class="hint">
+          Integrate supported evidence, informant differences, development,
+          function, alternatives, strengths, youth voice, safety, and
+          uncertainty without diagnosing.
+        </span>
+
+        <textarea id="formulation"></textarea>
+      </label>
+
+      <label class="field">
+        <span class="field-heading">
+          <span class="field-title">
+            Collaborative Support and Monitoring Plan
+          </span>
+
+          <span class="word-count" id="planCount">0 words</span>
+        </span>
+
+        <span class="hint">
+          Identify youth and caregiver priorities, accommodations, skills,
+          school supports, assessment or referral needs, treatment options,
+          coordination, safety steps, and measurable follow-up indicators.
+        </span>
+
+        <textarea id="plan"></textarea>
+      </label>
+
+      <pre class="summary" id="summary" tabindex="0"></pre>
+
+      <p class="status" id="status" aria-live="polite"></p>
+
+      <div class="actions">
+        <button type="button" class="button secondary" data-back="3">
+          Back
+        </button>
+
+        <button type="button" class="button" id="copyButton">
+          Copy Summary
+        </button>
+
+        <button type="button" class="button" id="downloadButton">
+          Download TXT
+        </button>
+
+        <button type="button" class="button danger" id="resetButton">
+          Reset Lab
+        </button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    This educational lab supports developmental clinical reasoning. It does
+    not provide diagnosis, assessment, or treatment advice.
+  </footer>
+
+  <script>
+    const storageKey =
+      "psy210-w14-developmental-context-support-v1";
+
+    const fieldIds = [
+      "facts",
+      "assumptions",
+      "timeline",
+      "contexts",
+      "function",
+      "alternatives",
+      "culture",
+      "safety",
+      "questions",
+      "formulation",
+      "plan"
+    ];
+
+    const blankState = Object.fromEntries(
+      fieldIds.map((fieldId) => [fieldId, ""])
+    );
+
+    let labState = loadState();
+    let currentStep = 0;
+
+    function loadState() {
+      try {
+        const savedState = JSON.parse(
+          localStorage.getItem(storageKey) || "{}"
+        );
+
+        return {
+          ...blankState,
+          ...savedState
+        };
+      } catch (error) {
+        return {
+          ...blankState
+        };
+      }
+    }
+
+    function saveState() {
+      try {
+        localStorage.setItem(
+          storageKey,
+          JSON.stringify(labState)
+        );
+      } catch (error) {
+        document.getElementById("status").textContent =
+          "Your browser could not save the responses locally.";
+      }
+    }
+
+    function countWords(value) {
+      const trimmedValue = value.trim();
+
+      if (!trimmedValue) {
+        return 0;
+      }
+
+      return trimmedValue.split(/\s+/).length;
+    }
+
+    function refreshProgress() {
+      let completedFields = 0;
+
+      fieldIds.forEach((fieldId) => {
+        const field = document.getElementById(fieldId);
+        const count = countWords(field.value);
+
+        const countElement = document.getElementById(
+          `${fieldId}Count`
+        );
+
+        countElement.textContent =
+          `${count} ${count === 1 ? "word" : "words"}`;
+
+        if (field.value.trim()) {
+          completedFields += 1;
+        }
+      });
+
+      document.getElementById("doneText").textContent =
+        `${completedFields} of ${fieldIds.length} prompts started`;
+
+      if (currentStep === 4) {
+        buildSummary();
+      }
+    }
+
+    function showStep(stepNumber) {
+      currentStep = Math.max(
+        0,
+        Math.min(4, stepNumber)
+      );
+
+      document
+        .querySelectorAll(".panel")
+        .forEach((panel, index) => {
+          panel.classList.toggle(
+            "active",
+            index === currentStep
+          );
+        });
+
+      document
+        .querySelectorAll(".tab")
+        .forEach((tab, index) => {
+          tab.classList.toggle(
+            "active",
+            index === currentStep
+          );
+
+          if (index === currentStep) {
+            tab.setAttribute("aria-current", "step");
+          } else {
+            tab.removeAttribute("aria-current");
+          }
+        });
+
+      document.getElementById("stepText").textContent =
+        `Step ${currentStep + 1} of 5`;
+
+      document.getElementById("progressBar").style.width =
+        `${(currentStep + 1) * 20}%`;
+
+      refreshProgress();
+
+      window.scrollTo({
+        top: document.querySelector("main").offsetTop - 10,
+        behavior: "smooth"
+      });
+    }
+
+    function displayValue(value) {
+      return value.trim() || "Not yet entered";
+    }
+
+    function buildSummary() {
+      const summary = `
+PSY 210 DEVELOPMENTAL CONTEXT AND SUPPORT PLANNING LAB
+CASE: Jordan Lee
+
+DIRECTLY SUPPORTED EVIDENCE
+${displayValue(labState.facts)}
+
+LABELS AND ASSUMPTIONS TO AVOID
+${displayValue(labState.assumptions)}
+
+DEVELOPMENTAL COURSE AND TIMELINE
+${displayValue(labState.timeline)}
+
+MULTI-SETTING EVIDENCE AND INFORMANT PERSPECTIVES
+${displayValue(labState.contexts)}
+
+POSSIBLE FUNCTION, DEMANDS, AND SKILL NEEDS
+${displayValue(labState.function)}
+
+ALTERNATIVE EXPLANATIONS AND MISSING EVIDENCE
+${displayValue(labState.alternatives)}
+
+CULTURE, IDENTITY, DISABILITY, AND ENVIRONMENT
+${displayValue(labState.culture)}
+
+YOUTH VOICE, STRENGTHS, SAFETY, AND PROTECTIVE FACTORS
+${displayValue(labState.safety)}
+
+YOUTH- AND FAMILY-CENTERED ASSESSMENT QUESTIONS
+${displayValue(labState.questions)}
+
+PROVISIONAL DEVELOPMENTAL FORMULATION
+${displayValue(labState.formulation)}
+
+COLLABORATIVE SUPPORT AND MONITORING PLAN
+${displayValue(labState.plan)}
+
+PROFESSIONAL BOUNDARY
+This analysis organizes provisional developmental and multi-setting
+evidence, informant perspectives, alternative explanations, context,
+youth voice, strengths, safety, and missing information. It does not
+establish ADHD, autism spectrum disorder, a conduct-related disorder,
+intellectual disability, or any other diagnosis.
+      `.trim();
+
+      document.getElementById("summary").textContent = summary;
+
+      return summary;
+    }
+
+    function connectFields() {
+      fieldIds.forEach((fieldId) => {
+        const field = document.getElementById(fieldId);
+
+        field.value = labState[fieldId] || "";
+
+        field.addEventListener("input", function () {
+          labState[fieldId] = this.value;
+          saveState();
+          refreshProgress();
+        });
+      });
+    }
+
+    async function copySummary() {
+      const status = document.getElementById("status");
+
+      try {
+        await navigator.clipboard.writeText(
+          buildSummary()
+        );
+
+        status.textContent = "Your lab summary was copied.";
+      } catch (error) {
+        status.textContent =
+          "Copying was blocked. Select the summary and copy it manually.";
+      }
+    }
+
+    function downloadSummary() {
+      const file = new Blob(
+        [buildSummary()],
+        {
+          type: "text/plain"
+        }
+      );
+
+      const downloadLink = document.createElement("a");
+
+      downloadLink.href = URL.createObjectURL(file);
+
+      downloadLink.download =
+        "PSY210_Developmental_Context_and_Support_Planning_Lab.txt";
+
+      downloadLink.click();
+
+      setTimeout(() => {
+        URL.revokeObjectURL(downloadLink.href);
+      }, 0);
+
+      document.getElementById("status").textContent =
+        "Your lab summary was downloaded.";
+    }
+
+    function resetLab() {
+      const confirmed = window.confirm(
+        "Erase all responses saved for this lab in this browser?"
+      );
+
+      if (!confirmed) {
+        return;
+      }
+
+      localStorage.removeItem(storageKey);
+
+      labState = {
+        ...blankState
+      };
+
+      location.reload();
+    }
+
+    document
+      .querySelectorAll(".tab")
+      .forEach((tab) => {
+        tab.addEventListener("click", function () {
+          showStep(Number(this.dataset.step));
+        });
+      });
+
+    document
+      .querySelectorAll("[data-next]")
+      .forEach((button) => {
+        button.addEventListener("click", function () {
+          showStep(Number(this.dataset.next));
+        });
+      });
+
+    document
+      .querySelectorAll("[data-back]")
+      .forEach((button) => {
+        button.addEventListener("click", function () {
+          showStep(Number(this.dataset.back));
+        });
+      });
+
+    document
+      .getElementById("copyButton")
+      .addEventListener("click", copySummary);
+
+    document
+      .getElementById("downloadButton")
+      .addEventListener("click", downloadSummary);
+
+    document
+      .getElementById("resetButton")
+      .addEventListener("click", resetLab);
+
+    connectFields();
+    showStep(0);
+  </script>
+</body>
+</html>
